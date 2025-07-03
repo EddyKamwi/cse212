@@ -15,17 +15,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        //1st create an array to store multiples called results
+        //1st create a results array to store multiples of a proviced number
         var results = new double[length];
 
-        //2nd loop to check if the length is not exceeded
-        //and append to the results list each time
+        //2nd create a loop to check if the length is not exceeded
+        //and append a multiple each time to the results list
         for (int count = 0; count < length; count++)
         {
-            //assigning values to the array
+            //3rd appending a multiple to the results array
             results[count] = (count + 1) * number;
         }
 
+        // 4th return the results array outside the loop
         return results; // replace this return statement with your own
     }
 
@@ -43,16 +44,16 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        //declare an index value for slicing the array
+        //1st declare an index value for slicing the array
         int index = data.Count - amount;
 
-        //create a new array starting from the index to end
+        //2nd create a new array starting from the index to end
         var newList = data.GetRange(index, amount);
 
-        //then append to the new array from beggining to where it was sliced
+        //3rd then append to the new array from beggining to where it was sliced
         newList.AddRange(data.GetRange(0, index));
 
-        //modifying the list in the parameter will require to clear and then add our new list.
+        //4th modifying the list in the parameter will require to clear and then add our new list.
         data.Clear();
         data.AddRange(newList);
     }
