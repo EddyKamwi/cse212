@@ -20,7 +20,7 @@ public static class Arrays
 
         //2nd loop to check if the length is not exceeded
         //and append to the results list each time
-        for (int count = 0; count <= length; count++)
+        for (int count = 0; count < length; count++)
         {
             //assigning values to the array
             results[count] = (count + 1) * number;
@@ -36,7 +36,7 @@ public static class Arrays
     ///
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
     /// </summary>
-    public static List<int> RotateListRight(List<int> data, int amount)
+    public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
         // Remember: Using comments in your program, write down your process for solving this problem
@@ -44,16 +44,17 @@ public static class Arrays
         // be implemented by another person.
 
         //declare an index value for slicing the array
-        var index = data.Count - amount;
+        int index = data.Count - amount;
 
         //create a new array starting from the index to end
-        List<int> newList = data.GetRange(index, amount);
+        var newList = data.GetRange(index, amount);
 
         //then append to the new array from beggining to where it was sliced
-        newList.AddRange(data.GetRange(0,index));
+        newList.AddRange(data.GetRange(0, index));
 
-        //return the new array
-        return newList;
+        //modifying the list in the parameter will require to clear and then add our new list.
+        data.Clear();
+        data.AddRange(newList);
     }
 
 }
